@@ -1,11 +1,10 @@
 import strutils, sequtils, math
-import ../aoc
 
-let input = intLines("input")
+let input = toSeq(lines("input")).map(parseInt)
   
-proc fuel1(f: int): int = f div 3 - 2
+func fuel1(f: int): int = f div 3 - 2
   
-proc fuel2(f: int): int =
+func fuel2(f: int): int =
   result = fuel1(f)
   if result > 0:
     result += fuel2(result)
