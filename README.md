@@ -24,3 +24,8 @@ particularly fast but does the job.
 Extension of day 2 with some extra instructions, variable length instructions
 and addressing modes. I have the feeling this will not be the last we see of
 this...
+
+### 06 - Universal Orbit Map
+
+Today I learned about the `-+-` HashSet operator!
+
