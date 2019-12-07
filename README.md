@@ -1,31 +1,35 @@
 
-### 01 - The Tyranny of the Rocket Equation/
+### Day 1 - The Tyranny of the Rocket Equation/
 
 What to say? Just do the math and recurse until done.
 
-### 02 - 1202 Program Alarm/
+### Day 2 - 1202 Program Alarm/
 
 What would AoC be without the obligatory elven CPU? Basic VM dispatcher
 with some helper templates for instruction decoding.
 
-### 03 - Crossed Wires/
+### Day 3 - Crossed Wires/
 
 Ha, found a use for NPeg! Trace the first wire, store all points with the
 distance traveled in a sparse 2D map and check for collisions while tracing the
 second wire.
 
-### 04 - Secure Container/
+### Day 4 - Secure Container/
 
 Iterate over the range and split the numbers in to base 10 digits. Not
 particularly fast but does the job.
 
-### 05 - Sunny with a Chance of Asteroids/
+### Day 5 - Sunny with a Chance of Asteroids/
 
 Extension of day 2 with some extra instructions, variable length instructions
 and addressing modes. I have the feeling this will not be the last we see of
 this...
 
-### 06 - Universal Orbit Map
+### Day 6 - Universal Orbit Map
 
 Today I learned about the `-+-` HashSet operator!
 
+### Day 7 - Amplification Circuit
+
+That didn't take too long, there's the CPU again. Needs some refactoring when
+you need to run them in parallel, though.
