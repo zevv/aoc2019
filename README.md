@@ -37,3 +37,7 @@ in parallel, though.
 ### Day 8: Space Image Format
 
 Nim functional programming show off.
+
+### Day 9: Sensor Boost
+
+_You now have a complete Intcode computer_. About time.
