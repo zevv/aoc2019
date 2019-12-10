@@ -41,3 +41,7 @@ Nim functional programming show off.
 ### Day 9: Sensor Boost
 
 _You now have a complete Intcode computer_. About time.
+
+### Day 10: Monitoring Station
+
+I got away with assuming target #200 will be hit in the first round, ha!
