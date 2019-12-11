@@ -40,8 +40,12 @@ Nim functional programming show off.
 
 ### Day 9: Sensor Boost
 
-_You now have a complete Intcode computer_. About time.
+_You now have a complete Intcode computer_. About time, let's move it into a library.
 
 ### Day 10: Monitoring Station
 
 I got away with assuming target #200 will be hit in the first round, ha!
+
+### Day 11: Space Police
+
+Day 3 + Day 9 = Day 11. 
