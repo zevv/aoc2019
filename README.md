@@ -49,3 +49,7 @@ I got away with assuming target #200 will be hit in the first round, ha!
 ### Day 11: Space Police
 
 Day 3 + Day 9 = Day 11. 
+
+### Day 12: The N-Body Problem
+
+is actually a N-dimensional problem. Fun, but I cheated and took a hint from someone.
