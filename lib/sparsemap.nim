@@ -9,6 +9,12 @@ proc set*[T](m: var SparseMap[T], x, y: int, v: T) =
     m[y] = initTable[int, T]()
   m[y][x] = v
 
+proc clear*[T](m: var SparseMap[T], x, y: int) =
+  if y notin m:
+    m[y] = initTable[int, T]()
+  if x in m[y]:
+    m[y].del x
+
 proc get*[T](m: SparseMap[T], x, y: int): T =
   if y in m and x in m[y]:
     result = m[y][x]
@@ -29,4 +35,8 @@ proc count*[T](m: SparseMap[T]): int =
     for x, v in l:
       inc result
 
-
+proc count*[T](m: SparseMap[T], w: T): int =
+  for y, l in m:
+    for x, v in l:
+      if v == w:
+        inc result
