@@ -1,9 +1,10 @@
 
-import math, tables, strutils, options, sequtils, os
+import math, tables, strutils, options, sequtils, os, sugar
 import ../lib/intcode
 import ../lib/sparsemap
 
 type Tile = enum Empty, Wall, Block, Paddle, Ball
+const cs = " #=O-"
 
 proc play(part: int): int =
 
@@ -31,7 +32,7 @@ proc play(part: int): int =
         of Ball:
           cpu.send some cmp(x, paddle)
           if paramCount() > 0:
-            echo $map, result
+            echo map.draw(proc(v: Tile): char = cs[v.int]), result
         else:
           discard
 

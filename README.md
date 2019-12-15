@@ -64,3 +64,15 @@ This was fun. Part1 is pretty trivial make-stuff-and-recursively-make-more-stuff
 part2 does a quick manufacturing of large batches until we run out of ore and
 then extrapolates the last bit, which turns out to be faster then doing a
 binary search for the biggest possible fit.
+
+### Day 15: Oxygen System
+
+Today is sunday:
+
+- Sleep late
+- Map the maze with a brute force random walk and count the distance by hand
+- Have breakfast
+- Have a hike in the woods
+- Have a coffee!
+- Properly recurse for part 1 and flood fill for part 2
+

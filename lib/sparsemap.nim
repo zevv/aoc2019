@@ -1,8 +1,9 @@
 
-import tables
+import tables, sugar
 
 type
   SparseMap*[T] = Table[int, Table[int, T]]
+  TileGen*[T] = proc(v: T): char
 
 proc set*[T](m: var SparseMap[T], x, y: int, v: T) =
   if y notin m:
@@ -19,7 +20,7 @@ proc get*[T](m: SparseMap[T], x, y: int): T =
   if y in m and x in m[y]:
     result = m[y][x]
 
-proc `$`*[T](m: SparseMap[T]): string =
+proc draw*[T](m: SparseMap[T], fn: TileGen): string =
   var (xmin, xmax, ymin, ymax) = (int.high, int.low, int.high, int.low)
   for y, l in m:
     (ymin, ymax) = (ymin.min y, ymax.max y)
@@ -27,8 +28,15 @@ proc `$`*[T](m: SparseMap[T]): string =
       (xmin, xmax) = (xmin.min x, xmax.max x)
   for y in ymin..ymax:
     for x in xmin..xmax:
-      result.add if m.get(x, y) != T.default: "#" else: " "
+      var c = fn(m.get(x, y))
+      if c == ' ':
+        c = if x == 0: '|' elif y == 0: '-' else: ' '
+      result.add c
     result.add "\n"
+
+proc `$`*[T](m: SparseMap[T]): string =
+  m.draw(proc(v: T): char =
+    if v == T.default: ' ' else: '#')
 
 proc count*[T](m: SparseMap[T]): int =
   for y, l in m:
@@ -40,3 +48,8 @@ proc count*[T](m: SparseMap[T], w: T): int =
     for x, v in l:
       if v == w:
         inc result
+
+iterator items*[T](m: SparseMap[T]): (int, int, T) =
+  for y, l in m:
+    for x, v in l:
+      yield (x, y, m.get(x, y))

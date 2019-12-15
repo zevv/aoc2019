@@ -6,7 +6,7 @@ type
 
   Mode = enum Pos = 0, Imm = 1, Rel = 2
 
-  Cpu = ref object
+  Cpu* = ref object
     p: Program
     ip: int
     base: int
@@ -98,4 +98,8 @@ proc newCpu*(p: Program, inputs: varargs[int]): Cpu =
   result = Cpu(p: p, input: initDeque[int](), output: initDeque[int]())
   for i in inputs:
     result.send some(i)
+
+proc copy*(cpu: Cpu): Cpu =
+  result = newCpu(cpu.p)
+  result.ip = cpu.ip
 
