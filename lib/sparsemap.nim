@@ -1,5 +1,5 @@
 
-import tables, sugar
+import tables
 
 type
   SparseMap*[T] = Table[int, Table[int, T]]
@@ -38,6 +38,9 @@ proc `$`*[T](m: SparseMap[T]): string =
   m.draw(proc(v: T): char =
     if v == T.default: ' ' else: '#')
 
+proc `$`*(m: SparseMap[char]): string =
+  m.draw(proc(v: char): char = v.char)
+
 proc count*[T](m: SparseMap[T]): int =
   for y, l in m:
     for x, v in l:
@@ -53,3 +56,10 @@ iterator items*[T](m: SparseMap[T]): (int, int, T) =
   for y, l in m:
     for x, v in l:
       yield (x, y, m.get(x, y))
+
+proc slice*[T](m: SparseMap[T], x1, y1, x2, y2: int): seq[seq[T]] =
+  for y in y1..y2:
+    var row: seq[T]
+    for x in x1..x2:
+      row.add m.get(x, y)
+    result.add row

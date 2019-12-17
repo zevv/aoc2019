@@ -12,6 +12,7 @@ type
     base: int
     input: Deque[int]
     output: Deque[int]
+    wantsRead*: bool
 
   Opcode = enum
     opAdd  = 1,
@@ -51,8 +52,10 @@ proc tick*(cpu: Cpu): bool =
       r(3) = r(1) * r(2)
     of opIn:
       if cpu.input.len == 0:
+        cpu.wantsRead = true
         return true
       r(1) = cpu.input.popFirst
+      cpu.wantsRead = false
     of opOut:
       cpu.output.addLast r(1)
     of opJt:
