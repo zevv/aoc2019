@@ -39,7 +39,8 @@ proc `$`*[T](m: SparseMap[T]): string =
     if v == T.default: ' ' else: '#')
 
 proc `$`*(m: SparseMap[char]): string =
-  m.draw(proc(v: char): char = v.char)
+  m.draw(proc(v: char): char =
+    if v.char > '\0': v.char else: ' ')
 
 proc count*[T](m: SparseMap[T]): int =
   for y, l in m:
